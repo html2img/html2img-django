@@ -31,34 +31,55 @@ on PyPI before this package is installable, so:
 If you publish them the other way round, `pip install html2img-django` fails at
 the dependency resolution step for anyone who tries it in the gap.
 
+## The first release needs no API token
+
+A project that does not exist yet can still be published by GitHub Actions,
+using a [pending publisher](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/).
+The project is created by the first successful upload, and the pending publisher
+becomes a normal one at that moment. This is the route to use — a token is only
+needed if you insist on uploading by hand.
+
+At [pypi.org/manage/account/publishing](https://pypi.org/manage/account/publishing/),
+under "Add a new pending publisher", enter:
+
+| Field | Value |
+| --- | --- |
+| PyPI Project Name | `html2img-django` |
+| Owner | `html2img` |
+| Repository name | `html2img-django` |
+| Workflow name | `publish.yml` |
+| Environment name | `pypi` |
+
+Then create the `pypi` environment in the GitHub repo under
+**Settings → Environments**. No secrets are needed.
+
+One caveat: a pending publisher does not reserve the project name. The name is
+only claimed on the first successful upload.
+
 ## Release steps
 
+Every release, including the first, is the same three commands:
+
 ```bash
-# 1. Bump the version
-#    src/html2img_django/__init__.py -> __version__ = "1.1.0"
+# 1. Bump __version__ in src/html2img_django/__init__.py
+# 2. Move the Unreleased entries in CHANGELOG.md under the new version, with a date
+# 3. Commit, tag, release
 
-# 2. Move the Unreleased entries in CHANGELOG.md under the new version
-
-# 3. Build and validate
-rm -rf dist/
-python -m build
-twine check dist/*
-
-# 4. Rehearse on TestPyPI (see the client's PUBLISHING.md for tokens)
-twine upload --repository testpypi dist/*
-
-# 5. Publish
-twine upload dist/*          # first release only; after that, use a GitHub release
+git commit -am "Release 1.1.0"
+git tag v1.1.0
+git push origin main --follow-tags
+gh release create v1.1.0 --generate-notes
 ```
 
-After the first upload, configure
-[trusted publishing](https://pypi.org/manage/project/html2img-django/settings/publishing/)
-with owner `html2img`, repository `html2img-django`, workflow `publish.yml`,
-environment `pypi`. Every release after that is just:
+Publishing the GitHub release runs `.github/workflows/publish.yml`, which builds,
+runs `twine check`, and uploads over OIDC with no token anywhere. It also
+generates [PEP 740 attestations](https://peps.python.org/pep-0740/), so the
+release carries verifiable provenance.
+
+To sanity-check the artefacts before tagging:
 
 ```bash
-git tag v1.1.0 && git push --tags
-gh release create v1.1.0 --generate-notes
+rm -rf dist/ && python -m build && twine check dist/*
 ```
 
 which runs `.github/workflows/publish.yml` and uploads with no token involved.
