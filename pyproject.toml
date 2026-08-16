@@ -84,6 +84,9 @@ packages = ["src/html2img_django"]
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.settings"
+# Put the repo root on sys.path so `tests.settings` resolves under a bare
+# `pytest` as well as under `python -m pytest`, which adds it implicitly.
+pythonpath = ["."]
 testpaths = ["tests"]
 addopts = "-q"
 
