@@ -6,6 +6,27 @@ follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and the
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-08-16
+
+### Added
+
+- Declared support for Django 6.0 and 6.1, and for Python 3.14. The test suite
+  already passed on all of them; only the metadata and the CI matrix lagged.
+
+### Changed
+
+- Declare the licence as an SPDX expression (`license = "MIT"` plus
+  `license-files`), so PyPI shows "MIT" in the project sidebar rather than the
+  full licence text.
+- Dropped the `Framework :: Django :: 5.0` classifier. Django 5.0 reached end of
+  life in April 2025 and is not covered by the test matrix; it is not blocked
+  from installing.
+
+### Fixed
+
+- Set pytest's `pythonpath` so a bare `pytest` finds `tests.settings`, not only
+  `python -m pytest`.
+
 ## [1.0.0] - 2026-08-16
 
 Initial release. Automatic Open Graph images for Django, rendered by the
@@ -33,5 +54,6 @@ Initial release. Automatic Open Graph images for Django, rendered by the
 - `cdn` and `media` storage modes, the latter writing into Django's storage.
 - A bundled default card template, ready to copy and customise.
 
-[Unreleased]: https://github.com/html2img/html2img-django/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/html2img/html2img-django/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/html2img/html2img-django/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/html2img/html2img-django/releases/tag/v1.0.0

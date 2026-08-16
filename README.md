@@ -4,7 +4,7 @@
 
 [![PyPI Version](https://img.shields.io/pypi/v/html2img-django)](https://pypi.org/project/html2img-django/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/html2img-django)](https://pypi.org/project/html2img-django/)
-[![Django Versions](https://img.shields.io/badge/django-4.2%20%7C%205.x-092E20)](https://www.djangoproject.com/)
+[![Django Versions](https://img.shields.io/badge/django-4.2%20%7C%205.x%20%7C%206.x-092E20)](https://www.djangoproject.com/)
 [![License](https://img.shields.io/pypi/l/html2img-django)](LICENSE)
 
 Automatic Open Graph (social share) images for your Django models, rendered by the [HTML to Image API](https://html2img.com) in real Chrome. You design the card as an ordinary Django template with full CSS control, and the package renders it against each object, sends the HTML to the API, and stores the returned image URL on the model.
@@ -50,7 +50,7 @@ Because the design is a template in your project rather than a fixed layout, fle
 ## Requirements
 
 - Python 3.10 or newer
-- Django 4.2 or newer (4.2 LTS, 5.x)
+- Django 4.2 or newer (4.2 LTS, 5.x, 6.x)
 - A free [HTML to Image](https://app.html2img.com/register) API key; every account starts with 50 free credits
 
 ## Installation
