@@ -1,0 +1,163 @@
+{% comment %}
+The default Open Graph card.
+
+Copy this file into your own project to customise it, for example to
+templates/og/post.html, and point HTML2IMG["TEMPLATE"] (or a per-model
+`template=` registration option) at it.
+
+The context available here:
+
+  object       the model instance being rendered (None in a sample preview)
+  og_headline  the headline, from og_image_headline or the object's title
+  og_subtitle  the optional second line
+  site_name    HTML2IMG["SITE_NAME"], or the current Site's name
+  site_logo    HTML2IMG["SITE_LOGO"], an absolute URL
+
+plus anything returned by the object's og_image_context() and by the `context`
+callable given at registration. Guard your own fields with {% if %} so one
+template can serve several models.
+
+Everything referenced here is fetched by the renderer over the public internet,
+so fonts, images and stylesheets must be reachable from outside your network.
+{% endcomment %}<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body { width: 1200px; height: 630px; }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background:
+                radial-gradient(1200px 600px at 80% -10%, #4338ca 0%, rgba(67, 56, 202, 0) 55%),
+                linear-gradient(135deg, #0b1120 0%, #111827 60%, #1e1b4b 100%);
+            color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .stage {
+            width: 1200px;
+            height: 630px;
+            padding: 72px 80px;
+            display: flex;
+            gap: 56px;
+            align-items: stretch;
+            overflow: hidden;
+        }
+
+        .content {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: #c7d2fe;
+        }
+
+        .brand img { height: 44px; width: auto; display: block; }
+
+        .headline {
+            font-size: 76px;
+            font-weight: 800;
+            line-height: 1.04;
+            letter-spacing: -0.02em;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .accent {
+            width: 120px;
+            height: 8px;
+            margin: 28px 0 24px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #a78bfa 0%, #6366f1 100%);
+        }
+
+        .subtitle {
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 1.35;
+            color: #cbd5e1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .middle { display: flex; flex-direction: column; }
+
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 26px;
+            color: #94a3b8;
+        }
+
+        .meta .author { color: #e2e8f0; font-weight: 600; }
+        .meta .dot { color: #6366f1; }
+
+        .figure {
+            flex: 0 0 360px;
+            align-self: center;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .figure img {
+            width: 360px;
+            height: 440px;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="content">
+            <div class="brand">
+                {% if site_logo %}
+                    <img src="{{ site_logo }}" alt="{{ site_name }}">
+                {% else %}
+                    <span>{{ site_name }}</span>
+                {% endif %}
+            </div>
+
+            <div class="middle">
+                <div class="headline">{{ og_headline }}</div>
+                <div class="accent"></div>
+                {% if og_subtitle %}<div class="subtitle">{{ og_subtitle }}</div>{% endif %}
+            </div>
+
+            <div class="meta">
+                {% if author %}<span class="author">{{ author }}</span>{% endif %}
+                {% if author and date %}<span class="dot">&bull;</span>{% endif %}
+                {% if date %}<span class="date">{{ date|date:"j M Y" }}</span>{% endif %}
+            </div>
+        </div>
+
+        {% if image %}
+            <div class="figure"><img src="{{ image }}" alt=""></div>
+        {% endif %}
+    </div>
+</body>
+</html>

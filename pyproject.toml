@@ -1,0 +1,106 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "html2img-django"
+dynamic = ["version"]
+description = "Automatic Open Graph images for Django, rendered by the html2img HTML to Image API."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "html2img", email = "info@html2img.com" }]
+maintainers = [{ name = "html2img", email = "info@html2img.com" }]
+keywords = [
+    "django",
+    "html2img",
+    "open-graph",
+    "og-image",
+    "social-images",
+    "html-to-image",
+    "html-to-png",
+    "html-to-pdf",
+    "screenshot",
+    "image-generation",
+    "seo",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+    "Typing :: Typed",
+]
+dependencies = [
+    "django>=4.2",
+    "html2img-client>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-django>=4.8",
+    "mypy>=1.8",
+    "django-stubs>=5.0",
+    "ruff>=0.6",
+]
+
+[project.urls]
+Homepage = "https://html2img.com"
+Documentation = "https://html2img.com/docs/usage/django"
+Source = "https://github.com/html2img/html2img-django"
+Issues = "https://github.com/html2img/html2img-django/issues"
+Changelog = "https://github.com/html2img/html2img-django/blob/main/CHANGELOG.md"
+Pricing = "https://html2img.com/pricing"
+
+[tool.hatch.version]
+path = "src/html2img_django/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/README.md",
+    "/CHANGELOG.md",
+    "/LICENSE",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/html2img_django"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["UP006", "UP007", "UP035", "UP045", "RUF012"]
+
+[tool.mypy]
+python_version = "3.10"
+files = ["src"]
+ignore_missing_imports = true
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "tests.settings"

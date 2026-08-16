@@ -1,0 +1,9 @@
+{% comment %}A minimal card used to prove per-model template overrides work.{% endcomment %}
+<!doctype html>
+<html lang="en">
+<body style="width:800px;height:418px;margin:0;font-family:system-ui">
+    <h1>{{ og_headline }}</h1>
+    {% if og_subtitle %}<p>{{ og_subtitle }}</p>{% endif %}
+    <footer>{{ site_name }}</footer>
+</body>
+</html>
