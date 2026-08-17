@@ -51,7 +51,7 @@ Because the design is a template in your project rather than a fixed layout, fle
 
 - Python 3.10 or newer
 - Django 4.2 or newer (4.2 LTS, 5.x, 6.x)
-- A free [HTML to Image](https://app.html2img.com/register) API key; every account starts with 50 free credits
+- A free API key from the [html2img dashboard](https://app.html2img.com/register); every account starts with 50 free credits
 
 ## Installation
 
