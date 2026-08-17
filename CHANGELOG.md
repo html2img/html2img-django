@@ -6,6 +6,14 @@ follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and the
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-08-17
+
+### Changed
+
+- README only: the API key requirement now describes the dashboard link for what
+  it is, rather than anchoring it on the product name. No code changes, so this
+  release exists only to refresh the description shown on PyPI.
+
 ## [1.0.1] - 2026-08-16
 
 ### Added
