@@ -63,7 +63,7 @@ dev = [
 
 [project.urls]
 Homepage = "https://html2img.com"
-Documentation = "https://html2img.com/docs/usage/django"
+Documentation = "https://html2img.com/integrations/django/"
 Source = "https://github.com/html2img/html2img-django"
 Issues = "https://github.com/html2img/html2img-django/issues"
 Changelog = "https://github.com/html2img/html2img-django/blob/main/CHANGELOG.md"

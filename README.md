@@ -486,7 +486,7 @@ LOGGING = {
 }
 ```
 
-At `DEBUG` you also see why an object was skipped (unchanged inputs, opted out, custom image, rendering disabled). The messages carry the API's `code` and HTTP status, which map to the [documented error codes](https://html2img.com/docs/errors).
+At `DEBUG` you also see why an object was skipped (unchanged inputs, opted out, custom image, rendering disabled). The messages carry the API's `code` and HTTP status, which map to the [documented error codes](https://html2img.com/docs/getting-started/#error-responses).
 
 ## Verifying your setup
 
@@ -525,14 +525,14 @@ reset_client()
 
 The same API has official packages and worked guides for
 [Python](https://github.com/html2img/html2img-python),
-[Laravel](https://html2img.com/docs/usage/laravel),
-[PHP](https://html2img.com/docs/usage/php),
-[Statamic](https://html2img.com/docs/usage/statamic),
-[WordPress](https://html2img.com/docs/usage/wordpress),
-[JavaScript and Node.js](https://html2img.com/docs/usage/javascript),
-[React](https://html2img.com/docs/usage/react),
-[Vue](https://html2img.com/docs/usage/vue) and
-[Ruby on Rails](https://html2img.com/docs/usage/rails).
+[Laravel](https://html2img.com/integrations/laravel/),
+[PHP](https://html2img.com/integrations/php/),
+[Statamic](https://html2img.com/integrations/statamic/),
+[WordPress](https://html2img.com/integrations/wordpress/),
+[JavaScript and Node.js](https://html2img.com/integrations/javascript/),
+[React](https://html2img.com/integrations/javascript/#react-and-nextjs),
+[Vue](https://html2img.com/integrations/javascript/#vue-and-nuxt) and
+[Ruby and Rails](https://html2img.com/integrations/ruby/).
 
 ## Development
 
