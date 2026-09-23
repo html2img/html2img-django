@@ -6,6 +6,15 @@ follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and the
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-09-23
+
+### Changed
+
+- README only: the "Other integrations" section now lists every official
+  package (SDKs, the Laravel integration, CMS plugins, the GitHub Action and
+  the MCP server), and the Development section no longer links the manual test
+  project, which is not public. No code changes.
+
 ## [1.0.2] - 2026-08-17
 
 ### Changed
@@ -62,6 +71,7 @@ Initial release. Automatic Open Graph images for Django, rendered by the
 - `cdn` and `media` storage modes, the latter writing into Django's storage.
 - A bundled default card template, ready to copy and customise.
 
-[Unreleased]: https://github.com/html2img/html2img-django/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/html2img/html2img-django/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/html2img/html2img-django/compare/v1.0.2...v1.0.3
 [1.0.1]: https://github.com/html2img/html2img-django/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/html2img/html2img-django/releases/tag/v1.0.0

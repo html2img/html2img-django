@@ -523,16 +523,14 @@ reset_client()
 
 ## Other integrations
 
-The same API has official packages and worked guides for
-[Python](https://github.com/html2img/html2img-python),
-[Laravel](https://html2img.com/integrations/laravel/),
-[PHP](https://html2img.com/integrations/php/),
-[Statamic](https://html2img.com/integrations/statamic/),
-[WordPress](https://html2img.com/integrations/wordpress/),
-[JavaScript and Node.js](https://html2img.com/integrations/javascript/),
-[React](https://html2img.com/integrations/javascript/#react-and-nextjs),
-[Vue](https://html2img.com/integrations/javascript/#vue-and-nuxt) and
-[Ruby and Rails](https://html2img.com/integrations/ruby/).
+The same API has official packages for other languages and platforms, all available now:
+
+- **SDKs:** [PHP](https://github.com/html2img/html2img-php) · [JavaScript and TypeScript](https://github.com/html2img/html2img-js) · [Python](https://github.com/html2img/html2img-python) · [Ruby](https://github.com/html2img/html2img-ruby)
+- **Frameworks:** [Laravel](https://github.com/html2img/html2img-laravel)
+- **CMS plugins:** [WordPress](https://wordpress.org/plugins/html2img/) · [Statamic](https://github.com/html2img/statamic-og-images) · [Craft CMS](https://plugins.craftcms.com/og-images)
+- **Automation and AI:** [GitHub Action](https://github.com/marketplace/actions/html-to-image) · [MCP server](https://html2img.com/mcp/) (paid plans)
+
+There are also worked guides for [React](https://html2img.com/integrations/javascript/#react-and-nextjs) and [Vue](https://html2img.com/integrations/javascript/#vue-and-nuxt), and anything that can make an HTTP request works with the API. Every integration is listed on the [integrations hub](https://html2img.com/integrations/).
 
 ## Development
 
@@ -547,7 +545,7 @@ mypy                # static analysis
 ```
 
 A ready-made Django project for exercising the package by hand lives in
-[html2img-django-test](https://github.com/html2img/html2img-django-test). Publishing to PyPI is covered in [PUBLISHING.md](PUBLISHING.md).
+html2img-django-test. Publishing to PyPI is covered in [PUBLISHING.md](PUBLISHING.md).
 
 ## Links
 
