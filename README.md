@@ -1,4 +1,4 @@
-[![html2img — HTML to image API, rendered in real Chrome](https://html2img.com/og-image.png)](https://html2img.com)
+[![HTML to Image (html2img): HTML to image API, rendered in real Chrome](https://html2img.com/og-image.png)](https://html2img.com)
 
 # Open Graph Images for Django
 
